@@ -1,0 +1,37 @@
+﻿Exercises for Chapter 1 of haskell-programming-0.10.2-screen.pdf
+
+--
+
+Exercises before section 1.7 on p. 40/1076
+
+1. b (i.e., λxy.xy is equivalent to λmn.mz)
+2. c (i.e., λxy.xxy is equivalent to λa(λb).aab)
+3. b (i.e., λxyz.zx is equivalent to λtos.st)
+
+--
+
+Exercises in section 1.11 on p. 43/1076
+
+Combinators:
+
+1. λx.xxx       is a combinator because every term in the body occurs in the head.
+2. λxy.zx       is not a combinator because z is a free variable.
+3. λxyz.xy(zx)  is ... um ... what do the parentheses mean?
+4. λxyz.xy(zxy) is ... ditto.
+5. λxy.xy(zxy)  is ... ditto.
+
+Normal form or diverge?
+
+1. λx.xxx is in the normal form because no more lambdas can be applied to arguments. 
+2. (λz.zz)(λy.yy)
+   ([z := (λy.yy)]zz)
+   (λy.yy)(λy.yy)
+   diverges (i.e., reduction never ends)
+3. (λx.xxx)z
+   ([x := z]xxx)
+   zzz
+   normal form
+
+Beta reduce
+
+[to be continued]
