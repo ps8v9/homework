@@ -5,7 +5,7 @@ sayHello :: String -> IO ()
 sayHello x = putStrLn ("Hello, " ++ x ++ "!")
 
 -- p. 56
-triple x = x * 3
+-- triple x = x * 3
 
 -- Exercises, p. 59
 
@@ -63,4 +63,77 @@ f_82_3 = z / x + y
          z = y * 10
 
 -- Chapter Exercises, pp. 82-87
--- TO BE CONTINUED ...
+
+-- Parenthesization
+-- 1. 2 + 2 * 3 - 1
+--    2 + (2 * 3) - 1
+--    (2 + (2 *3)) - 1
+--    7
+-- 2. (^) 10 $ 1 + 1
+--    (^) 10 $ (1 + 1)
+--    (^) 10 (1 + 1)
+--    (^) 10 2
+--    100
+-- 3. 2 ^ 2 * 4 ^ 5 + 1
+--    (2 ^ 2) * (4 ^ 5) + 1
+--    ((2 ^ 2) * (4 ^ 5)) + 1
+--    (4 * 1024) + 1
+--    4096 + 1
+--    4097
+
+-- Equivalent expressions
+-- 1. 1 + 1
+--    2
+--    Equivalent
+-- 2. 10 ^ 2
+--    10 + 9 * 10
+--    Equivalent
+-- 3. 400 - 37
+--    (-) 37 400
+--    Non-equivalent
+-- 4. 100 `div` 3
+--    100 / 3
+--    Non-equivalent
+-- 5. 2 * 5 + 10
+--    2 * (5 + 10)
+--    Non-equivalent
+
+-- More fun with functions
+--
+-- Rewrite the following code such that it could be evaluated in the REPL.
+-- z = 7
+-- x = y ^ 2
+-- waxOn = x * 5
+-- y =  z + 8
+--
+-- Solution:
+-- let z = 7
+-- let y = z + 8
+-- let x = y ^ 2
+-- waxOn = x * 5
+--
+-- 1. Now what will happen if you enter:
+--    10 + waxOn
+--    (+10) waxOn
+--    (-) waxOn 15
+--    Answers: 1135, 1135, 1110
+-- 2. While your REPL has waxOn in session, reenter the triple function at the prompt:
+--    let triple x = x * 3
+-- 3. Now what will happen if we enter this at the prompt:
+--    triple waxOn
+--    Answer: 3375
+-- 4. Rewrite waxOn as a function with a where clause in your source file.
+--    Load it into your REPL and make sure it still works as expected.
+waxOn = x * 5
+  where x = y ^ 2
+        y = z + 8
+        z = 7
+-- 5. Now add the triple function in the source file. Test it in the REPL using triple waxOn.
+triple x = x * 3
+-- 6. Now add a new function waxOff that looks like this:
+waxOff x = triple x
+-- 7. Load the source file into your REPL and enter waxOff waxOn at the prompt.
+--    What is the result of waxOff 10 or waxOff (-50)?
+--    Try modifying the waxOff function to do something new.
+waxOff' x = (x * 3) ^ 2
+waxOff'' x = x * 3 / 10
