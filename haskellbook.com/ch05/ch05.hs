@@ -84,4 +84,3 @@ f3 _ x = x
 --    Does the behavior change when the types of a and b change? No.
 
 -- Continue with "Polymorphic constants" on p. 157.
-
