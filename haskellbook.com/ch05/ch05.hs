@@ -120,11 +120,13 @@ triple' x = tripleItYo x
         tripleItYo y = y * 3
 
 -- Chapter Exercises, pp. 163-170
+
 -- Multiple choice
 -- 1. A value of type [a] is              c) a list whose elements are of some type a
 -- 2. A function of type [[a]] -> could   a) take a list of strings as an argument
 -- 3. A function of type [a] -> Int -> a  b) returns 1 element of type a [rest of answer is bogus]
 -- 4. A function of type (a, b) -> a      c) takes a tuple argument [rest of answer is bogus]
+
 -- Determine the type
 -- 1. Determine the value returned by these function applications and the type of that value.
 --    a) (* 9) 6 returns 54, of type Num a => a
@@ -136,5 +138,32 @@ triple' x = tripleItYo x
 -- 3. Given x = 5; y = x + 5; z y = y * 10, what is the type of z? Num a => a -> a
 -- 4. Given x = 5; y = x + 5; f = 4 / y, what is the type of f? Fractional a => a
 -- 5. Given x = "Julie"; y = " <3"; z = "Haskell"; f = x ++ Y ++ z, what is the type of f? [Char]
+
 -- Does it compile?
--- Continue chapter exercises on p. 165
+-- Which expression if any causes an error? Fix if possible.
+
+-- 1.
+bigNum = (^) 5 $ 10
+--wahoo = bigNum $ 10
+wahoo = bigNum ^ 10
+
+-- 2.
+x = print
+y = print "woohoo!"
+z = x "hello world"
+
+-- 3.
+a = (+)
+b = 5
+--c = b 10
+c = a b 10
+--d = c 200
+d = a c 200
+
+-- 4.
+a' = 12 + b'
+b' = 10000 * c'
+c' = 2 -- Had to define c'.
+
+-- Type variable or specific type constructor?
+-- Continue on p. 165
